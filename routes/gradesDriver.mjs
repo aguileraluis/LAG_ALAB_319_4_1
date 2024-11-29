@@ -3,6 +3,7 @@ import db from "../db/conn.mjs";
 import { ObjectId } from "mongodb";
 
 const router = express.Router();
+
 // Create a single grade entry
 router.post("/", async (req, res) => {
   let collection = await db.collection("grades");
@@ -19,7 +20,7 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-  let collection = await db.collection('grades')
+  let collection = await db.collection("grades");
   let query = { _id: ObjectId(req.params.id) };
 
   let result = await collection.findOne(query);
